@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+	<title>
+        {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}
+    </title>
+
+<body>
+
+</body>
+
+</head>
+<div class="is-flex is-flex-direction-row fullheight">
+	<div class="is-flex-grow-0">
+		{% include layout/SideBar.html %}
+	</div>
+
+	<div class="is-flex-grow-5 is-flex is-flex-direction-column">
+		{% include layout/TopBar.html %}
+        <div class="path has-text-primary-light spacing-page">  
+            <h1 class="is-size-6 has-text-grey">INICIO/{{ page.categoria | upcase }}/{{ page.title | upcase }}</h1>
+        </div>
+        <div class="content spacing-page">
+            <div class="category">
+                <h1 class="is-size-7 has-text-grey-darker mx-1">{{ page.categoria | upcase }}</h1>
+            </div>
+            <div class="title">
+                <h1 class="title has-text-grey-darker is-size-1">{{page.title | upcase}}</h1>
+            </div>
+            <!-- <div>
+                <a class="box is-flex is-justify-content-center is-align-items-center my-4" href={`${Assets}/documents/doc.zip`}>
+                    <i class="fa-solid fa-download fa-xl mx-3"></i>
+                    <h1 class="is-size-5">Baixar arquivos do curso</h1>
+                </a>
+            </div> -->
+            <div class="conteudo">
+                <p>     
+                    {{ content }}
+                </p>
+            </div>
+
+            <div class="player my-3">
+                <video 
+                class="player"
+                controls
+                muted
+                poster="https://th.bing.com/th/id/OIG.CmLs7pBcHDlZ32VQ5Oa8?pid=ImgGn">
+                <source src="/assets/cursos/{{ page.title }}/aula.mp4" type="video/mp4">
+                </video>
+            </div>
+
+        </div>
+        
+       
+	</div>
+</div>
+
+<style>
+	.fullheight{
+		height: 100vh;
+	}
+	.body{
+		margin: 0;
+		padding: 0;
+	}
+    .path{
+        font-weight: 100;
+        letter-spacing: 3px;
+    }
+    .content{
+
+    }
+    .spacing-page{
+        margin: 2% 10% 0px 10%;   
+    }
+    .category{
+
+    }
+    .box{
+        height: auto;
+        width: 300px;
+    }
+    .player{
+        background-color: aliceblue;
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+    }
+
+    .player video{
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
