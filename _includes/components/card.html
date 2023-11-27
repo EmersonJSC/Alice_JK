@@ -1,7 +1,7 @@
 <ul>
     {% for curso in site.cursos %}
     <li>
-        <a href='{{ curso.url  }}' >
+        <a href='{{ site.baseurl }}{{ curso.url  }}' >
             <div class="card mx-1 my-1">
                 <div class="card-image">
                     <figure class="image is-1by1">
