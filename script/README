@@ -1,0 +1,23 @@
+Script para automação de edição de vídeos do nosso canal.
+Desenvolvido por Flávio Schiavoni em Dezembro de 2023.
+
+Este script contém os seguintes arquivos:
+- README - Este arquivo.
+- data.md - Arquivo com os meta dados do curso.
+- intro.mmpz - Arquivo do LMMS com a trilha da abertura do vídeo.
+- intro.wav - Arquivo com a trilha da abertura do vídeo.
+- intro.svg - Desenho vetorial com os dados da abertura do vídeo.
+- teste2.mkv - Arquivo de vídeo que seria o curso em si.
+- logo.png - Logo a ser usada como marca d'água do vídeo.
+- watermark.svg - Desenho vetorial com o GC do autor.
+- credits.svg - Desenho vetorial com os créditos para o final do vídeo.
+- credits.wav - Arquivo com a trilha dos créditos.
+- script.sh - Arquivo que faz isso tudo de modo automático usando os comandos ffmpeg e sed.
+
+Explicando passo a passo o script:
+- O script pega os meta-dados do arquivo data.md para definir sua configuração. Os dados sobre o autor, título e nome do vídeo são informados no data.md.
+- O script irá gerar um arquivo de vídeo temporário, chamado tmp-intro.mkv, com a imagem e trilha da introdução, substituindo as strings "curso" e "nomenome" do arquivo intro.svg pelo nome do curso e nome do autor.
+- Depois, fará o mesmo para gerar o arquivo de créditos do vídeo (tmp-credits.mkv), porém, sem efetuas substituições no arquivo svg original.
+- Depois disso, irá tratar o áudio do vídeo original, normalizando-o e salvando-o no arquivo tmp-normalized.mkv.
+- Irá então mesclar o vídeo do curso (teste2.mkv) com o arquivo logo.png e a marca d'água presente no arquivo watermark.svg substituindo neste arquivo a string "nomenome"pelo nome do autor e "curso" pelo título. Este arquivo será salvo com o nome tmp-video.mkv.
+- O script irá então unir os 3 arquivos em um único arquivo.

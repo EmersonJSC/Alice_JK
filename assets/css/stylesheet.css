@@ -1,0 +1,314 @@
+/* Vai ficar um pouco bagunçado, mas por enquanto. */
+
+/* COLORS */
+.blue-text{
+    color: #0b1a33;
+}
+.blue-background{
+    background-color: #0b1a33;
+}
+/* DEFAULT-CSS */
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 32pt; /* Tamanho da fonte */
+}
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #333; /* Cor do texto */
+}
+
+.is-full-width{
+    width: 100%;
+}
+.is-full{
+    width: 100%;
+    height: 100%;
+}
+
+/* SIDEBAR-CSS */
+@media only screen and (min-width: 720px) {
+    .SideBar {
+        /* background-color: black; */
+        height: 100%;
+        min-height: 100vh;
+        width: 25vh;
+        z-index: 1000;
+        /* overflow: hidden; */
+        padding-top: 10px;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .SideBar {
+        /* background-color: black; */
+        height: 100vh;
+        width: 70px;
+        z-index: 1000;
+        overflow: hidden;
+        padding-top: 40px;
+    }
+    .menu-txt{
+        display: none;
+    }
+}
+.menu{
+        margin-top: 20px;
+    }
+.top-sidebar {
+    /* height: 10px; */
+    width: 100%;
+}
+.item-menu:hover {
+    background-color: #b4f2ff;
+}
+.active {
+    background-color: #5ce1f4;
+}
+.background {
+    background-color: #0b1a33;
+}
+.logo{
+    width: 50%;
+    /* margin-top: 80px; */
+}
+p {
+    word-wrap: break-word; /* Força a quebra de palavras para evitar esticar o item além do contêiner */
+}
+
+/* TOPBAR-CSS */
+
+@media only screen and (min-width: 720px) {
+    nav{
+        height: 100px;
+        /* width: 101rem; */
+        background-color: #0b1a33;
+    }
+}
+@media screen and (max-width: 1080px) {
+    nav{
+    height: 100px;
+    /* width: 101rem; */
+    background-color: #0b1a33;
+}
+}   
+input{
+    width: 300px;
+    /* height: 40px; */
+    background-color: #0b1a33;
+    border-color: #5ce1f4;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    
+}
+input::placeholder{
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.nav-item h5 a{
+    color: #fff;
+}
+.LinkName{
+    color: #5ce1f4 !important;
+}
+.visible{
+    display: none;
+}
+.usuario{
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espaçamento entre os cards */
+}
+
+/*  HOME-CSS */
+
+.about-image{
+    /* height: 500px; */
+}
+.home-title{
+    font-weight: bold;
+    font-size: 40pt;
+    /* width: 80%; */
+}
+
+.home-text {
+    display: block;
+    text-align: center; /* Opcional: centraliza o texto */
+    text-align: start;
+}
+.home-image{
+    width: auto;
+    height: auto;
+}
+.home-greeting{
+    width: 100%;
+}
+.home-text p{
+    font-size: 30pt;
+}
+
+/* Aulas CSS */
+
+/* .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px; 
+    justify-content: flex-start;
+}
+
+.column {
+    margin-bottom: 20px;
+} */
+
+
+/*  AUTORES-CSS */
+
+.author-img{
+    width: 30%;
+    height: auto;
+}
+.author-info{
+    color: #fff;
+}
+
+.author-title{
+    font-weight: bold;
+    padding-left: 30px;
+}
+
+.author-container{
+    background-color: #333;
+    padding: 25px;
+}
+
+.user-title{
+    color: #5ce1f4;
+}
+
+.user-details{
+    color: #5ce1f4;
+}
+
+/* AULAS-CSS */
+
+.detals-aula{
+    
+}
+
+.aula-title{
+    font-weight: bold;
+    padding-left: 30px;
+    background-color: #333;
+    color: #fff;
+}
+.aula-name{
+    font-size: 12pt;
+    padding-left: 35px;
+    color: #5ce1f4;
+
+    text-align: start;
+}
+.aula-video{
+    width: 95%;
+}
+.content-aula{
+    padding-left: 45px;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+}
+
+.content-aula > * {
+    width: 95%;
+}
+
+/* CURSOS */
+
+.disable{
+    display: none;
+}
+.title-Background{
+    background-color: #333;
+    color: #fff;
+}
+.video-curso video{
+    width: 100%;
+    height: auto;
+}
+
+/* CHAT */
+.chat-background{
+    background-color: #333;
+}
+.chat-container {
+    width: 40%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+}
+/* .chat-line{
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+} */
+.message {
+    max-width: auto;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    position: relative;
+}
+
+.received {
+    background-color: #f0f0f0;
+    justify-content: start;
+    align-self: flex-start;
+    /* float: left; */
+}
+.received-name{
+    font-size: 6pt;
+    color: #0b1a33;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #fff,  
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff,
+                1px 1px 0 #fff; /* Sombra do texto */
+
+    position: absolute;
+    bottom: 0;
+    top: -5px;
+}
+.sent {
+    background-color: #dcf8c6;
+    justify-content: end;
+    align-self: flex-end;
+    /* float: right; */
+}
+
+.sent-name{
+    font-size: 6pt;
+    color: #0b1a33;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #fff,  
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff,
+                1px 1px 0 #fff; /* Sombra do texto */
+
+    position: absolute;
+    bottom: 0;
+    top: -5px;
+}

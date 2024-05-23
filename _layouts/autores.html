@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/stylesheet.css">
+    {% if page.styles %}{{ page.styles }}{% endif %}
+	<title>
+        {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}
+    </title>
+
+    
+</head>
+	<body>
+		<div class="is-flex is-flex-direction-row is-full-width">
+			<div class="is-flex">
+				{% include SideBar.html %}
+			</div>
+			<div class="is-flex">
+				<div class="is-flex-grow-5 is-flex is-flex-direction-column" >
+					{% include TopBar.html %}
+					<main class="mt-6">
+                        <h1 class="author-title">Detalhes do Autor</h1>
+                        <div class="is-flex is-flex-direction-row author-container">
+                            {% assign author_slug = page.name | replace: '.md', '' %}
+                            {% assign imagem_author = 'autores/' | append: author_slug | append: '.jpg' %}
+                            <img src="{{ site.baseurl }}/{{ imagem_author }}" alt="Imagem do Autor" class="author-img">
+                            
+                            <div class="author-info mx-6">
+                                <h2 class="user-title">{{ page.title }}</h2>
+                                <p class="user-details">{{ page.content }}</p>
+                            </div>
+                            
+                        </div>
+                        
+
+						
+					</main>
+	
+					
+	
+				</div>
+			</div>
+		</div>
+		<footer>
+			<!-- Conteúdo do rodapé -->
+		</footer>
+	</body>
+</html>

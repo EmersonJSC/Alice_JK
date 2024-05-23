@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/stylesheet.css">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    {% if page.styles %}{{ page.styles }}{% endif %}
+	<title>
+        {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}
+    </title>
+
+
+    {% assign aulas = site.aulas | sort: 'date' | reverse %}
+ 
+	<script>
+		const switchGrind = () =>{
+			var grad = document.getElementById("grad");
+			var list = document.getElementById("list");
+		
+			list.classList.add("is-hidden");
+			grad.classList.remove("is-hidden");
+			
+		}
+		const switchList = () =>{
+			var grad = document.getElementById("grad");
+			var list = document.getElementById("list");
+		
+			grad.classList.add("is-hidden");
+			list.classList.remove("is-hidden");
+			
+		}
+	</script>
+</head>
+	<body>
+		<div class="is-flex is-flex-direction-row is-full-width">
+			<div class="is-flex">
+				{% include SideBar.html %}
+			</div>
+			<div class="is-flex">
+				<div class="is-flex-grow-5 is-flex is-flex-direction-column">
+					{% include TopBar.html %}
+					<main class="">
+                        <div class="aula-title pt-6 pb-6">
+							<div class="detals-aula is is-flex is-flex-direction-row">
+								<div class="detals-aula is is-flex is-flex-direction-column is-flex-grow-1">
+									<h1 class="aula-title">{{ page.title }}</h1>
+									<h2 class="aula-name">{{ page.software }} - {{ page.level }}</h2>
+
+									<h3 class="aula-name">{{ page.author }}</h2>
+									<h3 class="aula-name">{{ page.date | date: "%d/%m/%Y" }}</h2>
+								</div>
+							</div>
+                        </div>
+						<div class="is-flex is-flex-direction-row is-align-items-center	">
+							<h1 class="title pt-6 pb6 pl-6 is-flex-grow-3">Explore as Aulas deste Curso: Descubra o que Está por Vir!</h1>
+							<div class="is-flex-grow-1 mt-5 ">
+								<span class="material-symbols-outlined" onclick="switchGrind()" style="cursor: pointer;" >grid_view</span>
+								<span class="material-symbols-outlined" onclick="switchList()" style="cursor: pointer;" >more_vert</span>
+							</div>
+							
+						</div>
+
+                        <div id="grad" class=" is-flex is-justify-content-center is-align-content-center">
+							{% assign aulas = site.aulas | sort: 'date' | reverse %}
+							<div class="columns is-multiline">
+								{% for aula in aulas %}
+								{% assign nome = aula.name | replace: ".md","" %}
+									{% for aulaContent in page.aulas %}
+										{% if nome == aulaContent %}	
+											<div class="column is-one-third">
+												<a href='{{ site.baseurl }}{{ aula.url  }}.html' class="card-link">
+													<div class="card">
+														<div class="card-image">
+															<figure class="image is-4by3">
+																<img src="{{ site.baseurl }}/thumbs/{{ nome }}.jpg">
+															</figure>
+														</div>
+														<div class="card-content">
+															<div class="content my-2">
+																<h1 class="title is-size-4">{{  aula.title }}</h1>
+																<h3 class="subtitle is-size-6">{{ aula.level  }}</h3>
+																<h3 class="is-size-6">{{ aula.description  }}</h3>
+																<div class="is-flex is-flex-direction-row is-align-items-center	">
+																	<span class="is-size-6 is-flex-grow-4 blue-text">{{ aula.author  }}</span>
+																	<span class="is-size-7">{{ aula.date | date: "%d-%m-%y"}}</span>
+																</div>
+															</div>
+														</div>  
+													</div>
+												</a>
+											</div>
+										{% endif %}	
+									{% endfor %}
+								{% endfor %}
+							</div>
+                        </div>
+
+						<div id="list" class=" is-flex is-flex-direction-column is-justify-content-center is-align-content-center mt-5 is-hidden">
+							{% for aulaContent in page.aulas %}
+							{% assign aula_slug = aulaContent | replace: '.md', '' %}
+							{% assign video_aula = site.baseurl | append: '/aulas/' | append:  aula_slug | append: '.mp4' %}
+							<div class="title-Background px-6">
+								<h1>{{ aulaContent }}</h1>
+							</div>
+							<div class="video-curso">	
+								<video controls class="aula-video">
+									<source src="{{ video_aula }}" type="video/mp4">
+									Seu navegador não suporta o elemento de vídeo.
+								</video>
+							</div>
+							{% endfor %}
+						</div>
+
+					</main>
+	
+				</div>
+			</div>
+		</div>
+		<footer>
+			<!-- Conteúdo do rodapé -->
+		</footer>
+	</body>
+</html>

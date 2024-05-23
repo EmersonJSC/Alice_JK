@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/stylesheet.css">
+    {% if page.styles %}{{ page.styles }}{% endif %}
+	<title>
+        {% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}
+    </title>
+
+    
+</head>
+	<body>
+		<div class="is-flex is-flex-direction-row is-full-width">
+			<div class="is-flex">
+				{% include SideBar.html %}
+			</div>
+			<div class="is-flex">
+				<div class="is-flex-grow-5 is-flex is-flex-direction-column" >
+					{% include TopBar.html %}
+					<main>
+
+                        <div class="aula-title pt-6 pb-6">
+							<div class="detals-aula is is-flex is-flex-direction-row">
+								<div class="detals-aula is is-flex is-flex-direction-column is-flex-grow-1">
+									<h1 class="aula-title">{{ page.title }}</h1>
+									<h2 class="aula-name">{{ page.software }} - {{ page.level }}</h2>
+
+									<h3 class="aula-name">{{ page.author }}</h2>
+									<h3 class="aula-name">{{ page.date | date: "%d/%m/%Y" }}</h2>
+								</div>
+
+								<div class="download aula is-flex is-flex-grow-1 is-justify-content-flex-end mr-6">
+									{% assign aula_name = page.name | replace: '.md', '' %}
+									{% assign zip_file = 'aulas/' | append:  aula_name | append: '.zip' %}
+										<a class="button is-success is-large" href="{{ site.baseurl }}{{ zip_file }}" download>
+											Download
+										</a>
+								</div>
+							</div>
+                        </div>
+                       
+						<div class=" is-flex is-justify-content-center	is-align-content-center	mt-3">
+							{% assign aula_slug = page.name | replace: '.md', '' %}
+							{% assign video_aula = '' | append:  aula_slug | append: '.mp4' %}
+							<video controls class="aula-video">
+								<source src="{{ video_aula }}" type="video/mp4">
+								Seu navegador não suporta o elemento de vídeo.
+							</video>
+						</div>
+
+						<div class="content-aula mt-3 pt-2 pb-2">
+							<p>{{ page.content }}</p>
+						</div>
+					</main>
+	
+					
+	
+				</div>
+			</div>
+		</div>
+		<footer>
+			<!-- Conteúdo do rodapé -->
+		</footer>
+	</body>
+</html>

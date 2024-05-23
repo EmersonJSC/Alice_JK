@@ -1,10 +1,12 @@
 ---
-layout: curso
-categoria: Sequencer
-lang: pt
-title: Curso de LMMS
-autor: Emerson Junio
-description: Curso de Linux Multimedia Studio
+layout: cursos
+author: Matheus De Bomfim Rodrigues Jordão
+description: Introdução ao Hydrogen
+date: 2023/10/01
+aulas:
+- Introdução ao LMMS
+- Mixando no LMMS
+- Importando soundfonts no LMMS
+- Usando o Zynaddsub no LMMS
 ---
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est placerat in egestas erat imperdiet sed. Magna fermentum iaculis eu non diam. Blandit cursus risus at ultrices. Urna et pharetra pharetra massa massa. Mi bibendum neque egestas congue quisque egestas diam in arcu. Arcu risus quis varius quam quisque. Etiam dignissim diam quis enim lobortis scelerisque fermentum. Bibendum neque egestas congue quisque egestas. Tristique senectus et netus et malesuada fames ac turpis. Quam elementum pulvinar etiam non quam lacus suspendisse. Ac tincidunt vitae semper quis lectus nulla at. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam.
+Veja que maneiro é este curso de LMMS

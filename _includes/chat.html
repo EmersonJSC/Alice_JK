@@ -1,0 +1,46 @@
+<script>
+    // Seleciona o campo de entrada e o botão de envio
+    const messageInput = document.getElementById("messageInput");
+    const sendButton = document.getElementById("sendButton");
+
+    // Adiciona um ouvinte de evento ao botão de envio
+    sendButton.addEventListener("click", function() {
+        // Obtém o texto digitado
+        const messageText = messageInput.value;
+
+        // Verifica se o texto não está vazio
+        if (messageText.trim() !== "") {
+            // Cria um novo elemento de mensagem enviada
+            const sentMessage = document.createElement("div");
+            sentMessage.classList.add("message", "sent");
+            sentMessage.innerHTML = `
+                <span class="sent-name">Você</span>
+                <p>${messageText}</p>
+            `;
+
+            // Adiciona a nova mensagem à caixa de mensagens
+            const chatContainer = document.querySelector(".chat-container");
+            chatContainer.appendChild(sentMessage);
+
+            // Limpa o campo de entrada
+            messageInput.value = "";
+        }
+    });
+</script>
+
+<div class="chat-container chat-background">
+    <div class="message received">
+        <span class="received-name">NOME_USUARIO</span>
+        <p>Olá! Como vai?</p>
+    </div>
+    <!-- <div class="chat-line"></div> -->
+    <div class="message sent">
+        <span class="sent-name">Você</span>
+        <p>Olá! Tudo bem, e você?</p>
+    </div>
+    <!-- Mais mensagens aqui -->
+</div>
+<div class="chat-container is-flex is-flex-direction-row" style="height: 100%;">
+    <input id="messageInput" class="input is-info" type="text" placeholder="Info input">
+    <button id="sendButton" class="button ml-2 is-link">Enviar</button>
+</div>
